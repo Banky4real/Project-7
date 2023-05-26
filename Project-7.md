@@ -84,10 +84,12 @@
 
 ### Installing NFS Client on Webserver
 `sudo yum install nfs-utils nfs4-acl-tools -y`
+
 ![Installing-NFS-Client](./Images-Web-Server/Installing-NFS-Client.png)
 
 ### Connecting to tooling database from Webserver
 `mysql -h 172.31.92.231 -u webaccess -p tooling < tooling-db.sql`
+
 ![connecting-to-tooling-Database](./Images-Web-Server/Connected-to-tooling-Database-from-webserver.png)
 
 ### Mounting /var/www/ and target the NFS server’s export for apps
@@ -98,6 +100,7 @@
 `sudo mount -t nfs -o rw,nosuid 172.31.93.135:/mnt/apps /var/www`
 `sudo vi /etc/fstab`
 `172.31.93.135:/mnt/apps /var/www nfs defaults 0 0`
+
 ![Mounting-server-export](./Images-Web-Server/making-sure-our-changes-remain-after-reboot.png)
 
 ### Installing Remi’s repository, Apache and PHP
@@ -118,29 +121,37 @@
 `sudo systemctl enable php-fpm`
 
 `sudo setsebool -P httpd_execmem 1`
+
 ![connecting-to-tooling-Database](./Images-Web-Server/Installing-Remi-repository.png)
 
 ### Installing git to allow forking of website
 `sudo yum install git`
+
 ![Installing-git](./Images-Web-Server/Installing-Git-to-allow-forking-of-website.png)
 
 ### cloning tooling repo from git account
 `git init`
 `git clone https://github.com/darey-io/tooling.git`
+
 ![Tooling-repo-cloned](./Images-Web-Server/Tooling-Repo-Cloned.png)
 
 ### Deploying html folder from repo to /var/www/html
 `sudo cp -R html/. /var/www/html`
+
 ![HTML-folder-from-repo-deployed-to-var-www-html](./Images-Web-Server/HTML-folder-from-repo-deployed-to-var-www-html.png)
 
 ### Accessing the tooling database forked from github from Database
+
 ![tooling-db-accessed-from-database](./Images-Web-Server/tooling-db-accessed-from-database.png)
 
 ### Tooling Website Live
+
 ![Tooling-website-live](./Images-Web-Server/Tooling-website-live.png)
 
 ### Accessing the tooling database forked from github from Database
+
 ![tooling-db-accessed-from-database](./Images-Web-Server/tooling-db-accessed-from-database.png)
 
 ### Logged in with admin info
+
 ![logged-in-with-admin-info](./Images-Web-Server/Logged-in-with-admin-info.png)
