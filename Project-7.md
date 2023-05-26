@@ -85,7 +85,7 @@
 ### Installing NFS Client on Webserver
 `sudo yum install nfs-utils nfs4-acl-tools -y`
 
-![Installing-NFS-Client](./Images-Web-Server/Installing-NFS-Client.png)
+![Installing-NFS-Client](./Images-Web-server//Installing-NFS-Client.png)
 
 ### Connecting to tooling database from Webserver
 `mysql -h 172.31.92.231 -u webaccess -p tooling < tooling-db.sql`
